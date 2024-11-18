@@ -11,11 +11,20 @@
 {% endif %}
 <form action="/jogos/save" method="post">
     <div>
-        <label for="nome">Jogos: </label>
+        <label for="nome">Nome: </label>
         <select name="time_id" id="nome">
             <option value=""></option>
             {% for t in times%}
-            <option value="{{t.id}}">{{t.nome}}</option>
+            <option value="{{t.nome}}">{{t.nome}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="adversario">Adversário: </label>
+        <select name="adversario" id="adversario">
+            <option value=""></option>
+            {% for t in times%}
+            <option value="{{t.nome}}">{{t.nome}}</option>
             {% endfor %}
         </select>
     </div>

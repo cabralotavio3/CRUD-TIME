@@ -7,7 +7,8 @@ bp_jogo = Blueprint('jogos', __name__, template_folder='templates')
 @bp_jogo.route('/')
 def index():
     j = Jogos.query.all()
-    return render_template('jogos.html', jogos=j)
+    t = Times.query.all()
+    return render_template('jogos.html', jogos=j, times=t)
 
 @bp_jogo.route('/add')
 def add():

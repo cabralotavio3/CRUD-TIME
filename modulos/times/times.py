@@ -11,7 +11,7 @@ def index():
 
 @bp_time.route('/add')
 def add():
-    return render_template('times_add.html')
+    return render_template('time_add.html')
 
 @bp_time.route('/save', methods=['POST'])
 def save():

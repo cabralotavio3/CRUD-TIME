@@ -10,10 +10,10 @@ db.init_app(app)
 migrate = Migrate(app, db)
 from models import Times, Jogos
 from modulos.times.times import bp_time
-from modulos.jogo.jogo import bp_jogo
+from modulos.jogos.jogos import bp_jogo
 
 app.register_blueprint(bp_time, url_prefix='/times')
-app.register_blueprint(bp_jogo, url_prefix='/jogo')
+app.register_blueprint(bp_jogo, url_prefix='/jogos')
 
 @app.route('/')
 def index():

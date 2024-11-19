@@ -9,15 +9,18 @@
 </div>
 {% endfor %}
 {% endif %}
-<form action="/jogos/save" method="post">
+<form action="/jogos/editasave" method="post">
+    <input type="hidden" name="id" value="{{t.id}}">
     <div>
         <label for="nome">Nome: </label>
         <select name="time_id" id="nome">
-            <option value=""></option>
-            {% for t in times%}
-            <option value="{{t.id}}">{{t.nome}}</option>
-            {% endfor %}
-        </select>
+            {% for t in times %}
+            {% if t.id == time.id_time %}
+            <option value="{{t.id}}" selected >{{t.nome}}</option>
+            {% else %}
+            <option value="{{t.id}}" >{{t.nome}}</option>
+            {% endif %}
+        {% endfor %}
     </div>
     <div>
         <label for="adversario">Adversário: </label>

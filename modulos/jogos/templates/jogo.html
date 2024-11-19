@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="tb_med">
+
+
+
+        <div class="add">
+            <a href="/jogos/add">Adicionar</a>
+        </div>
+            <table>
+                <tr>
+                    <th>Adversário</th>
+                    <th>Data</th>
+                    <th>Time</th>
+                    <th>Edita</th>
+                    <th>Remove</th>
+                </tr>
+                {% for m in jogos %}
+                <tr>
+                    <td>{{m.adversario}}</td>
+                    <td>{{m.data}}</td>
+                    <td>{{m.time.nome}}</td>
+                    <td><a href="/jogos/edita/{{m.id}}">Editar</a></td>
+                    <td><a href="/jogos/remove/{{m.id}}">Remover</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% set mensagens = get_flashed_messages() %}
+        {% if mensagens %}
+            {% for msg in mensagens %}
+                <div class="msg">
+                    {{ msg }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock %}

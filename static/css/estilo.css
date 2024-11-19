@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+:root {
+    --primary: #615959;
+    --secondary: #e4ffdd;
+    --terciary: #155c03;
+    --black_trans: #00000080;
+    --black: #000000;
+    --White: #ffffff;
+}
+header{
+    display: flex;
+    background-color: var(--secondary);
+    justify-content: left;
+    align-items: center;
+    border: var(--black_trans);
+    border-bottom-width: 0.5rem ;
+    border-bottom-style: solid;
+    height: 4rem;
+}
+header img{
+    width: 2rem;
+}
+header nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header nav a{
+    font-size: 2rem;
+    margin: 0 1rem;
+    color: var(--black_trans);
+    text-decoration: none;
+}
+header nav a:hover{
+    font-weight: bold;
+    color: rgb(0, 113, 165);
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    min-height: calc(100vh - 7rem);
+}
+.index{
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main img{
+    width: 5rem;
+}
+.tabela{
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add a{
+    color: var(--black);
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 1rem;
+    font-weight: bold;
+}
+
+.msg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--terciary);
+    margin: 1rem;
+    font-size: 2rem;
+}
+
+table, tr, td, th{
+    border: 2px solid var(--terciary);
+    border-collapse: collapse;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 2rem;
+    background-color: var(--secondary);
+}
+
+table {
+    padding-top: 10rem;
+    margin: auto;
+}
+
+/*Formularios*/
+
+form{
+    padding-top: 5rem;
+}
+
+fieldset{
+    width: fit-content;
+    height: fit-content;
+    flex-direction: column;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid black;
+}
+
+fieldset div{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: left;
+    align-items: end;
+    font-size: 2rem;
+}
+
+fieldset div input{
+    height: 2rem;
+}

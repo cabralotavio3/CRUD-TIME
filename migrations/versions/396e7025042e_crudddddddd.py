@@ -1,8 +1,8 @@
-"""oii
+"""crudddddddd
 
-Revision ID: 459419be4770
+Revision ID: 396e7025042e
 Revises: 
-Create Date: 2024-11-19 12:41:44.170592
+Create Date: 2024-11-19 18:48:30.692861
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '459419be4770'
+revision = '396e7025042e'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,15 +21,15 @@ def upgrade():
     op.create_table('time',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nome', sa.String(length=100), nullable=True),
-    sa.Column('cidade', sa.String(length=100), nullable=True),
+    sa.Column('cidade', sa.String(length=50), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('jogo',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('time_id', sa.Integer(), nullable=True),
     sa.Column('adversario', sa.String(length=100), nullable=True),
-    sa.Column('data', sa.Date(), nullable=True),
-    sa.ForeignKeyConstraint(['time_id'], ['time.id'], ),
+    sa.Column('data', sa.String(length=50), nullable=True),
+    sa.Column('id_time', sa.Integer(), nullable=True),
+    sa.ForeignKeyConstraint(['id_time'], ['time.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

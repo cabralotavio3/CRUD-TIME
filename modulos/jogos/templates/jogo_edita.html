@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div>
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form action="/jogos/editasave" method="post">
+        <fieldset>
+            <input type="hidden" name="id" value="{{dados.id}}">
+            <div>
+                <label for="adversario">Adversário: </label>
+                <input type="text" name="adversario" id="adversario" value="{{dados.adversario}}" required>
+            </div>
+            <div>
+                <label for="data">Data: </label>
+                <input type="date" name="data" id="data" value="{{dados.data}}" required>
+            </div>
+            <div class="time">
+                <label for="id_time">Time: </label>
+                <select id="id_time" name="id_time" required>
+                    {% for p in time %}
+                        <option value="{{p.id}}" >{{p.nome}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Salvar</button>
+        </fieldset>
+    </form>
+{% endblock %}
+

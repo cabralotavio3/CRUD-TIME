@@ -1,31 +1,35 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-    {% set mensagens = get_flashed_messages() %}
-    {% if mensagens %}
-        {% for msg in mensagens %}
-            <div class="message">
-                {{ msg }}
-            </div>
-        {% endfor %}
-    {% endif %}
-    <div>
+<div class="tabela">
+
+    <div class="add">
         <a href="/times/add">Adicionar</a>
     </div>
     <table>
         <tr>
             <th>Nome</th>
             <th>Cidade</th>
+            <th>Edita</th>
+            <th>Remove</th>
         </tr>
-        {% for t in dados %}
+        {% for p in times %}
         <tr>
-            <td>{{t.nome}}</td>
-            <td>{{t.cidade}}</td>
+            <td>{{p.nome}}</td>
+            <td>{{p.cidade}}</td>
+            <td><a href="/times/edita/{{p.id}}">Editar</a></td>
+            <td><a href="/times/remove/{{p.id}}">Remover</a></td>
         </tr>
         {% endfor %}
     </table>
-{% endblock %}
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div class="msg">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
 
-{% block rodape %}
-    &copy; left
+</div>
 {% endblock %}

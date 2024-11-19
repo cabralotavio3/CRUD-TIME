@@ -1,35 +1,33 @@
 from flask import Blueprint, render_template, request, redirect, flash
-from database import db 
-from models import Times, Jogos
+from models import Jogos, Times
+from database import db
 
-bp_jogo = Blueprint('jogos', __name__, template_folder='templates')
+bp_jogo = Blueprint('jogos', __name__, template_folder="templates")
 
 @bp_jogo.route('/')
 def index():
-    j = Jogos.query.all()
-    t = Times.query.all()
-    return render_template('jogos.html', jogos=j, times=t)
-
+    dados = Jogos.query.all()
+    return render_template('jogo.html', jogos = dados)
+    
 @bp_jogo.route('/add')
 def add():
-    t = Times.query.all()
-    return render_template('jogos_add.html', times=t)
+    p = Times.query.all()
+    return render_template('jogo_add.html', times = p)
 
 @bp_jogo.route('/save', methods=['POST'])
 def save():
-    time_id = request.form.get('time_id')
     adversario = request.form.get('adversario')
     data = request.form.get('data')
-    if time_id and adversario and data:
-        objeto = Jogos(time_id, adversario ,data)
-        db.session.add(objeto)
+    id_time = request.form.get('id_time')
+    if adversario and data and id_time:
+        bd_jogo = Jogos(adversario, data, id_time)
+        db.session.add(bd_jogo)
         db.session.commit()
-        flash('Salvo!')
+        flash('Projeto salvo com sucesso!!!')
         return redirect('/jogos')
     else:
-        flash('Preencha todos os campos!')
+        flash('Preencha todos os campos!!!')
         return redirect('/jogos/add')
-    
 
 @bp_jogo.route("/remove/<int:id>")
 def remove(id):
@@ -37,7 +35,7 @@ def remove(id):
     if id > 0:
         db.session.delete(dados)
         db.session.commit()
-        flash('Jogo removido com sucesso!')
+        flash('Jogos removido com sucesso!')
         return redirect("/jogos")
     else:
         flash("Caminho incorreto!")
@@ -45,16 +43,16 @@ def remove(id):
 
 @bp_jogo.route("/edita/<int:id>")
 def edita(id):
-    j = Jogos.query.get(id)
-    t = Times.query.all()
-    return render_template("jogos_edita.html", jogo=j, time=t)
+    jogo = Jogos.query.get(id)
+    time = Times.query.all()
+    return render_template("jogo_edita.html", dados=jogo, time=time)
 
 @bp_jogo.route("/editasave", methods=['POST'])
 def editasave():
     id = request.form.get('id')
     adversario = request.form.get('adversario')
     data = request.form.get('data')
-    id_time = request.form.get('id_paciente')
+    id_time = request.form.get('id_time')
     if id and adversario and data and id_time:
         jogo = Jogos.query.get(id)
         jogo.adversario = adversario

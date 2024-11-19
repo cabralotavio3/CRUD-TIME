@@ -9,18 +9,20 @@
             </div>
         {% endfor %}
     {% endif %}
-    <form action="/times/save" method="post">
+    <form class="paci_edita" action="/times/editasave" method="post">
         <fieldset>
+            <input type="hidden" name="id" value="{{dados.id}}">
             <div>
                 <label for="nome">Nome: </label>
-                <input type="text" name="nome" id="nome">
+                <input type="text" name="nome" id="nome" value="{{dados.nome}}" required>
             </div>
             <div>
                 <label for="cidade">Cidade: </label>
-                <input type="text" name="cidade" id="cidade">
+                <input type="text" name="cidade" id="cidade" value="{{dados.cidade}}" required>
             </div>
             <button type="submit">Salvar</button>
         </fieldset>
     </form>
 
 {% endblock %}
+

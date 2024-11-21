@@ -23,7 +23,7 @@
                 <label for="id_time">Time: </label>
                 <select id="id_time" name="id_time" required>
                     {% for p in times %}
-                        <option value="{{p.id}}">{{p.adversario}}</option>
+                        <option value="{{p.id}}">{{p.nome}}</option>
                     {% endfor %}
                 </select>
             </div>

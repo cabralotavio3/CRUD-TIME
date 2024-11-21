@@ -23,7 +23,7 @@ def save():
         bd_jogo = Jogos(adversario, data, id_time)
         db.session.add(bd_jogo)
         db.session.commit()
-        flash('Projeto salvo com sucesso!!!')
+        flash('Jogo salvo com sucesso!!!')
         return redirect('/jogos')
     else:
         flash('Preencha todos os campos!!!')

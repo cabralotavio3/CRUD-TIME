@@ -21,7 +21,7 @@ def save():
         bd_time = Times(nome, cidade)
         db.session.add(bd_time)
         db.session.commit()
-        flash('Paciente salvo com sucesso!!!')
+        flash('Time salvo com sucesso!!!')
         return redirect('/times')
     else:
         flash('Preencha todos os campos!!!')

@@ -7,7 +7,6 @@
 :root {
     --primary: #615959;
     --secondary: #e4ffdd;
-    --terciary: #155c03;
     --black: #000000;
     --White: #ffffff;
 }
@@ -27,89 +26,67 @@ header nav{
     justify-content: center;
 }
 header nav a{
-    font-size: 2rem;
+    scale: 1.2;
     margin: 0 1rem;
     color: var(--black);
     text-decoration: none;
 }
 
 main{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--white);
-    min-height: calc(100vh - 7rem);
+    min-height: 100vh;
+}
+.titulo{
+   text-align: center; 
+   justify-self: center; 
 }
 .index{
-    font-size: 2rem;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
-main img{
-    width: 5rem;
+
+.futebol{
+    scale:3;
+    margin-top: 10rem;
 }
 .tabela{
     display: block;
-    align-items: center;
-    justify-content: center;
 }
-
 .add{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .add a{
     color: var(--black);
     text-decoration: none;
-    font-size: 2rem;
     margin: 1rem;
-    font-weight: bold;
 }
 
 .msg{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    text-align: center; 
+   justify-self: center; 
 }
 
 table, tr, td, th{
-    border: 2px solid var(--terciary);
     border-collapse: collapse;
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: 2rem;
-
+    border: 1px solid var(--black);
+}
 table {
-    padding-top: 10rem;
     margin: auto;
 }
 
-/*Formularios*/
-
-form{
-    padding-top: 5rem;
-}
-
 fieldset{
+    margin: auto;
     width: fit-content;
     height: fit-content;
     flex-direction: column;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid black;
 }
 
 fieldset div{
     padding: 0.5rem;
-    display: flex;
-    justify-content: left;
-    align-items: end;
-    font-size: 2rem;
 }
 
-fieldset div input{
-    height: 2rem;
-}
